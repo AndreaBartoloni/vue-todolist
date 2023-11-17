@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>To Do list</title>
+</head>
+<body>
+    <div id="app">
+        <h1>To DO</h1>
+        <!-- usiamo element per richiamare l'elemento, e i come posizione.  mentre l'espressione : class ecc significa che se la condizione element.done è vera verrà applicatas la classe css -->
+        <ul v-for="(element, i) in TodoList" :key="i">
+            <li :class="{ 'completed': element.done}" @click="clickActivity()"> {{element.text}}</li> 
+            <button @click="deleteActivity(index)">x</button>
+            
+        </ul>
+        <input type="text" v-model="addTodo">
+        <button @click="AddActivity()">Aggiungi</button>
+        
+    </div>
+  
+
+    <script src="vueTodoList.js"></script>
+    
+</body>
+</html>
